@@ -29,28 +29,39 @@ const handleAllVideos = async (categoryId) => {
     data.data?.forEach((videos) => {
         const div = document.createElement(`div`);
         div.innerHTML = `
-        <div class="card w-96 bg-base-100 shadow-xl">
+        <div class="card w-72  ">
         <figure >
             <img src=${videos?.thumbnail} />
         </figure>
 
         <div class="card-body ">
-            <h2 class="card-title">${videos.title}</h2>
             
+            <div class="flex space-between  gap-12">
+                
+                    <img class="w-14 h-14 rounded-full"
+                     src=${videos?.authors[0]?.profile_picture} />
+                     <h4 class="card-title">${videos.title}</h4>
 
-           
-            <div class="card-footer flex justify-between mt-8">
-            <div class="flex">
-                <div class="w-14 rounded-full">
-                    <img src=${videos?.authors[0]?.profile_picture} />
-                    <p class="">${videos?.authors[0]?.profile_name}</p> 
-                </div>
-            </div>
+                     
+             </div>
+           <div class="">
+                     
+            
+           <div>
+           <p class="">${videos?.authors[0]?.profile_name}</p>
+           <h5 class="">${videos?.authors[0]?.verified}</h5> 
+           </div>
+
+            <p class="">${videos?.others?.views}</p> 
+
+                        </div>
+            
+            
+            
         </div>
         
-                        <div>
-                            <h6></h6>
-                        </div>
+        
+                        
 
 
         </div>
